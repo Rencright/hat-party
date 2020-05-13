@@ -1,0 +1,59 @@
+@import "../../../common/variables";
+
+.UserText {
+  font-family: "Open Sans", sans-serif;
+  &.standard {
+    color: $colour-text-black;
+    .darkMode & {
+      color: $colour-text-white;
+    }
+  }
+  &.red {
+    color: $colour-text-red-light;
+    .darkMode & {
+      color: $colour-text-red-dark;
+    }
+  }
+  &.orange {
+    color: $colour-text-orange-light;
+    .darkMode & {
+      color: $colour-text-orange-dark;
+    }
+  }
+  &.yellow {
+    color: $colour-text-yellow-light;
+    .darkMode & {
+      color: $colour-text-yellow-dark;
+    }
+  }
+  &.green {
+    color: $colour-text-green-light;
+    .darkMode & {
+      color: $colour-text-green-dark;
+    }
+  }
+  &.blue {
+    color: $colour-text-blue-light;
+    .darkMode & {
+      color: $colour-text-blue-dark;
+    }
+  }
+  &.purple {
+    color: $colour-text-purple-light;
+    .darkMode & {
+      color: $colour-text-purple-dark;
+    }
+  }
+  &.grey {
+    color: $colour-text-grey-light;
+    .darkMode & {
+      color: $colour-text-grey-dark;
+    }
+  }
+  &.brown {
+    color: $colour-text-brown-light;
+    .darkMode & {
+      color: $colour-text-brown-dark;
+    }
+  }
+}

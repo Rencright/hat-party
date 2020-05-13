@@ -1,0 +1,14 @@
+@import "../../../common/variables";
+
+.Heading {
+  font-family: "Roboto", sans-serif;
+  margin-block-start: auto;
+  color: $colour-text-black;
+  .darkMode & {
+    color: $colour-text-white;
+  }
+}
+
+h1.Heading {
+  font-family: "Comfortaa", "Roboto", sans-serif;
+}
