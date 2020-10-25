@@ -1,7 +1,9 @@
 @import "../../../common/variables";
 
 .Heading {
-  font-family: "Roboto", sans-serif;
+  font-size: 32px;
+  line-height: 40px;
+  font-family: $font-heading-2;
   margin-block-start: auto;
   color: $colour-text-black;
   .darkMode & {
@@ -10,5 +12,7 @@
 }
 
 h1.Heading {
-  font-family: "Comfortaa", "Roboto", sans-serif;
+  font-size: 48px;
+  line-height: 56px;
+  font-family: $font-heading-1;
 }

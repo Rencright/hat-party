@@ -1,7 +1,9 @@
 @import "../../../common/variables";
 
 .UserText {
-  font-family: "Open Sans", sans-serif;
+  font-family: $font-user-text;
+  font-size: 14px;
+  line-height: 16px;
   &.standard {
     color: $colour-text-black;
     .darkMode & {

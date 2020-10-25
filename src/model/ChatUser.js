@@ -9,10 +9,14 @@ class ChatUser {
   toStateUserObject = (appearanceSettings) => {
     return {
       uid: this._uuid,
-      timestamp: this._timestamp,
+      joined: this._timestamp,
       appearance: appearanceSettings,
       connected: true,
     };
+  };
+
+  getUid = () => {
+    return this._uuid;
   };
 }
 

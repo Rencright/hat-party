@@ -1,0 +1,12 @@
+@import "../../../common/variables";
+
+.PageHeader {
+  width: 100%;
+  height: 72px;
+  box-sizing: border-box;
+  padding: 8px;
+  background-color: $colour-header-light;
+  .darkMode & {
+    background-color: $colour-header-dark;
+  }
+}

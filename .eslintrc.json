@@ -38,7 +38,7 @@
         ],
         "operator-linebreak": [
             "error",
-            "before"
+            "after"
         ],
         "indent": [
             "error",

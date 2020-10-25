@@ -23,6 +23,17 @@ class FakeChatroomHandler {
   connect = async (appearanceSettings) => {
     this._localUser = new ChatUser();
     this._connected = true;
+
+    window.setTimeout(() => {
+      const fakeUser = new ChatUser();
+      const appearance = {
+        displayName: 'Alice',
+        color: 'red',
+      };
+      this._connectedUsers.push(fakeUser);
+      this._onUserJoined(fakeUser.toStateUserObject(appearance));
+    }, 5000);
+
     return this._localUser.toStateUserObject(appearanceSettings);
   };
 
@@ -36,7 +47,21 @@ class FakeChatroomHandler {
   isConnected = () => this._connected;
 
   sendMessage = async (message) => {
+    console.log(message);
+    this.setTimeout(() => {
+      if (this._connectedUsers.length > 0) {
+        const firstFakeUser = this._connectedUsers[0];
 
+        const fakeResponseMessage = {
+          uid: firstFakeUser.getUid(),
+          type: 'text',
+          body: 'Hello! This is a fake, hard-coded response message!',
+          timestamp: new Date().getTime(),
+        };
+
+        this._onMessageReceived(fakeResponseMessage);
+      }
+    }, 5000);
   };
 
   addMessageListener = (messageListener) => {

@@ -1,0 +1,11 @@
+@import "../../../common/variables";
+
+.InterfaceText {
+  font-size: 24px;
+  line-height: 32px;
+  font-family: $font-interface-text;
+  color: $colour-text-black;
+  .darkMode & {
+    color: $colour-text-white;
+  }
+}

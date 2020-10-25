@@ -1,8 +1,10 @@
 import React from 'react';
+// import process from 'process';
 // import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import update from 'immutability-helper';
-import { Heading, UserText } from '../../components/atoms';
+import { InterfaceText } from '../../components/atoms';
+import { PageHeader } from '../../components/organisms';
 import './HatParty.scss';
 import FakeChatroomHandler from '../../model/FakeChatroomHandler';
 
@@ -16,8 +18,8 @@ class HatParty extends React.Component {
   // };
 
   state = {
-    // darkMode: true,
-    darkMode: false,
+    darkMode: true,
+    // darkMode: false,
     connected: false,
     color: 'standard',
     displayName: 'Anonymous',
@@ -41,18 +43,16 @@ class HatParty extends React.Component {
   connect = async () => {
     const { color, displayName } = this.state;
 
-    const newUser = this.chatroomHandler.connect({ color, displayName });
+    const newUser = await this.chatroomHandler.connect({ color, displayName });
 
-    this.setState((prevState) => {
-      return {
-        uid: newUser.uid,
-        connected: true,
-        userLookup: {
-          $merge: {
-            [newUser.uid]: newUser,
-          },
+    this.setState({
+      uid: newUser.uid,
+      connected: true,
+      userLookup: {
+        $merge: {
+          [newUser.uid]: newUser,
         },
-      };
+      },
     });
   }
 
@@ -92,6 +92,9 @@ class HatParty extends React.Component {
   };
 
   render() {
+    // console.log(process);
+    // console.log(process.env.NODE_ENV);
+    // console.log(process.env.REACT_APP_TITLE);
     const {
       darkMode,
     } = this.state;
@@ -106,29 +109,8 @@ class HatParty extends React.Component {
         <Helmet>
           <title>Hat Party</title>
         </Helmet>
-        <Heading size="1">Hat Party</Heading>
-        <Heading size="2">Group Title</Heading>
-        <UserText>The quick brown fox jumps over the lazy dog.</UserText>
-        <UserText color="red">The quick brown fox jumps over the lazy dog.</UserText>
-        <UserText color="orange">The quick brown fox jumps over the lazy dog.</UserText>
-        <UserText color="yellow">The quick brown fox jumps over the lazy dog.</UserText>
-        <UserText color="green">The quick brown fox jumps over the lazy dog.</UserText>
-        <UserText color="blue">The quick brown fox jumps over the lazy dog.</UserText>
-        <UserText color="purple">The quick brown fox jumps over the lazy dog.</UserText>
-        <UserText color="grey">The quick brown fox jumps over the lazy dog.</UserText>
-        <UserText color="brown">The quick brown fox jumps over the lazy dog.</UserText>
-        <div className="HatParty darkMode">
-          <Heading size="2">Dark Mode</Heading>
-          <UserText>The quick brown fox jumps over the lazy dog.</UserText>
-          <UserText color="red">The quick brown fox jumps over the lazy dog.</UserText>
-          <UserText color="orange">The quick brown fox jumps over the lazy dog.</UserText>
-          <UserText color="yellow">The quick brown fox jumps over the lazy dog.</UserText>
-          <UserText color="green">The quick brown fox jumps over the lazy dog.</UserText>
-          <UserText color="blue">The quick brown fox jumps over the lazy dog.</UserText>
-          <UserText color="purple">The quick brown fox jumps over the lazy dog.</UserText>
-          <UserText color="grey">The quick brown fox jumps over the lazy dog.</UserText>
-          <UserText color="brown">The quick brown fox jumps over the lazy dog.</UserText>
-        </div>
+        <PageHeader title="Hat Party" />
+        <InterfaceText>Hello World</InterfaceText>
       </div>
     );
   }

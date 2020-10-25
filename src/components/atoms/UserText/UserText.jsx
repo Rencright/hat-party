@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './UserText.scss';
 
-class UserText extends React.Component {
+class UserText extends React.PureComponent {
   static propTypes = {
     bold: PropTypes.bool,
     color: PropTypes.string,
